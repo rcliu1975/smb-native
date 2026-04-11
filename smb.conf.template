@@ -1,0 +1,23 @@
+[global]
+   workgroup = __WORKGROUP__
+   server string = Native Samba Server
+   netbios name = %h
+   security = user
+   map to guest = never
+   server min protocol = SMB2
+   log file = /var/log/samba/log.%m
+   max log size = 1000
+   logging = file
+   load printers = no
+   printcap name = /dev/null
+   disable spoolss = yes
+   usershare allow guests = no
+
+[__SHARE_NAME__]
+   path = __SHARE_DIR__
+   browseable = yes
+   read only = no
+   guest ok = no
+   valid users = __SMB_USER__
+   create mask = 0664
+   directory mask = 2775
